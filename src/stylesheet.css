@@ -1,0 +1,59 @@
+#label_no_images {
+    -fx-border-width: 10;
+	-fx-border-color: rgb(90,90,90) ;
+	-fx-border-radius: 20px;
+	-fx-border-insets: 15;
+	-fx-text-fill: gray ;
+}
+
+.thumbnail {
+	-fx-border-color:darkblue;
+    -fx-border-insets:3;
+    -fx-border-radius:3;
+    -fx-border-width: 0;
+}
+
+.thumbnail:hover {
+/*	-fx-border-color:blue; */
+}
+
+.selected_thumbnail {
+/*	-fx-border-color:orange;
+	-fx-border-width: 20;*/
+	-fx-background-color:yellow;
+}
+
+.mainimage {
+	-fx-background-color:papayawhip;
+	-fx-fill-width: true;
+}
+
+.main{
+ /* -fx-background-image: url("ricepaper_v3.png"); */
+}
+
+.nebenrollen {
+	-fx-background-color: derive(papayawhip , 30%); 
+	-fx-fill-width: true;
+	-fx-background:derive(papayawhip , 30%);
+}
+
+.scrollpane {
+	-fx-background:rgba(0.1,0.1,0.1, 0.0); 
+/*	-fx-fill-width: true; */
+	-fx-background-image: url("film2.jpg");
+    -fx-background-repeat: repeat-y;
+    -fx-background-size: 210 100;
+    /*
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+    */ 
+}
+
+#toparea {
+	-fx-background-color: derive(papayawhip , 30%);
+	-fx-fill-width: true;
+	-fx-background:derive(papayawhip , 30%);
+}
+
+
