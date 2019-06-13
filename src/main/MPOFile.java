@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Timer;
@@ -195,23 +196,13 @@ public class MPOFile {
         BufferedImage img3DFile2 = mapBImages.get("2" + scale);
 
         if (img3DFile1 == null || img3DFile2 == null) {
-            ImageReader reader = ImageIO.getImageReadersByFormatName("jpeg").next();
-            ImageReadParam param = reader.getDefaultReadParam();
-
-            param.setSourceSubsampling(scale, scale, 0, 0);
-            try {
-                ImageInputStream iis = ImageIO.createImageInputStream(mpoFile);
-
-                reader.setInput(iis, true);
-                img3DFile1 = reader.read(0, param);
-                while (iis.read() == 0)
-          ;
-                iis.seek(iis.getStreamPosition() - 1);
-                reader.reset();
-                reader.setInput(iis, true);
-                img3DFile2 = reader.read(0, param);
-
-                iis.close();
+           try{
+               List<BufferedImage> bis = new JPGExtractor().createBufferdImageFromMpo(mpoFile);
+            
+               img3DFile1 = bis.get(0);
+               img3DFile2 = bis.get(1);
+                       
+               
             } catch (IOException e) {
                 e.printStackTrace();
                 return null;
